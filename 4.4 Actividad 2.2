@@ -1,1 +1,6 @@
-asda
+schtasks /Create /SC MINUTE /MO 15 /TN "InfoPro" /TR “powershell.exe -File C:\Users\Administrador\Desktop\Logs.ps1"
+#"/Create" para crear una tarea
+#"/SC" para especificar el intervale en el cual se aplicara la tarea
+#"/MO" especificamos en este caso 15 es decir que cada 15 minutos ejecutara la tarea.
+#"/TN" Nombre de la tarea
+#"/TR" Ruta de la ubicación del script
