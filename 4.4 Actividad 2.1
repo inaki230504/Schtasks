@@ -1,1 +1,14 @@
-adas
+$rutafichero = "C:\Logs\infoProcess.dat"
+$rutacarpeta = "C:\Logs"
+if (Test-Path $rutacarpeta) {    #Este if sirve para crear la carpeta "Logs"
+} else{
+mkdir $rutacarpeta}
+Get-Date >> $rutafichero    #Inserta la hora en el documento "infoProcess.dat"
+echo "Procesos que consumen mas de 25 MB de memoria virtual" >> $rutafichero    
+Get-Process | where {$_.VirtualMemorySize -gt 25MB } >> $rutafichero    #Inserta en el Documento los porcesos que usan mas de 25MB de memoria virtual.
+echo "Procesos con los cuales la zoa establecida sea mayor a 50MB" >> $rutafichero
+Get-Process | where {$_.WS -gt 50MB} >> $rutafichero    #Inserta en el documento los procesos que ocupan mas de 50 MB.
+echo "Procesos que esten consumiendo más del 5% de la CPU" >> $rutafichero
+Get-Process | where {$_.CPU -gt 5} >>$rutafichero    #Inserta en el documento los procesos que superan el 5% del procesador.
+echo  "Cuenta de número de procesos que se están ejecutando en el sistema." >> $rutafichero
+Get-Process | where {$_.WS} | Measure-Object >> $rutafichero  #Inserta en el documento la cantidad de procesos que se estan ejecutando.
