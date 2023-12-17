@@ -1,0 +1,6 @@
+-schtasks /Create /SC DAILY /TN "CopiaSYSVOL" /TR "powershell.exe -File C:\Users\Admin-Tiran\Desktop\Copia-SYSVOL.ps1" /ST 15:30
+#"/Create" sirve para crear una tarea
+#"/SC" Es para decir en que frecuencia se realizara la tarea tenemos opciones como "DAILY", "HOURLY", etc.
+#"/TN" El nombre de la tarea
+#"/TR" Especificamos la ruta del script en este caso es de powershell ya que tendremos que especificar que lo ejecute por powershell poniendo "powershell.exe"
+#"/ST" La hora que queremos que se ejecute
