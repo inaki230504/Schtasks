@@ -1,0 +1,12 @@
+$destinationPath = "C:\Users\Administrador\Desktop"
+$sysvolPath = "C:\Windows\SYSVOL"
+$SYSVOL_Desktop = "C:\Users\Administrador\Desktop\SYSVOL"
+
+if (Test-Path $SYSVOL_Desktop) {                        #El Test-Path nos sirve para confirmar que existe esa ruta.
+Remove-Item -Path $SYSVOL_Desktop -Recurse -Force       #En caso que exista la borra
+} else {
+echo "Se ha creado con exito"                           #En caso de que no exista le dira que se ha creado con exito
+}
+
+Copy-Item -Path $sysvolPath -Destination $destinationPath -Recurse #Hace una copia del directorio SYSVOL en el escritorio de Administrador.
+
